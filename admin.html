@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="theme-color" content="#102a43" />
+  <title>Administración | Biblioteca ESM</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="admin.js" defer></script>
+</head>
+<body class="admin-body">
+  <header class="site-header"><div class="container header-inner"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true">E</span><span class="brand-text"><strong>ESM</strong><small>Panel de administración</small></span></a><div class="header-links"><a class="header-action" href="codigos-qr.html">Generar QR</a><a class="header-action" href="./">← Biblioteca</a></div></div></header>
+  <main class="container admin-main">
+    <section class="admin-title"><span class="section-kicker">GESTIÓN DE CONTENIDOS</span><h1>Administración ESM</h1><p>Gestiona las dos secciones públicas desde un solo lugar: procedimientos en PDF y registros de accidentabilidad, TOP 4 y aprendizajes.</p></section>
+
+    <div id="admin-alert" class="notice" role="status" aria-live="polite" hidden></div>
+
+    <section id="connect-card" class="panel connect-panel">
+      <div class="panel-heading"><div><h2>Iniciar sesión como administrador</h2><p>Acceso exclusivo a la gestión de procedimientos y accidentabilidad.</p></div><span class="tag neutral">Área restringida</span></div>
+      <form id="connect-form" class="form-grid">
+        <label class="span-full">Correo electrónico del administrador
+          <input id="admin-email" type="email" value="ronal.vargas@esm.cl" required autocomplete="username" spellcheck="false" />
+        </label>
+        <label class="span-full">Contraseña
+          <input id="admin-password" type="password" required autocomplete="current-password" placeholder="Ingresa tu contraseña" />
+        </label>
+        <label class="span-full">Servidor seguro de administración <span class="muted-inline">(se configura una sola vez en este navegador)</span>
+          <input id="api-url" type="url" required placeholder="https://biblioteca-esm-admin.tuusuario.workers.dev" autocomplete="off" spellcheck="false" />
+        </label>
+        <div class="span-full form-actions"><button class="button primary" type="submit" id="connect-btn">Ingresar al administrador</button></div>
+      </form>
+      <div class="helper"><strong>Importante:</strong> este acceso requiere publicar primero el servicio seguro de Cloudflare Workers y configurar su contraseña y autorización de GitHub. Los trabajadores no necesitan cuenta ni contraseña. Nunca coloques la contraseña ni el token de GitHub en el repositorio público.</div>
+    </section>
+
+    <section id="workspace" hidden>
+      <div class="workspace-top"><div class="connected"><span class="status-pulse"></span> Administrando <strong id="connected-repo"></strong></div><button type="button" id="disconnect" class="button secondary small">Desconectar</button></div>
+      <nav class="admin-tabs" aria-label="Seleccionar módulo de administración">
+        <button id="tab-procedures" class="tab-button active" type="button" aria-pressed="true">📄 Procedimientos</button>
+        <button id="tab-incidents" class="tab-button" type="button" aria-pressed="false">🛡️ Accidentabilidad y TOP 4</button>
+      </nav>
+      <div id="procedures-workspace">
+      <div class="stats-grid"><div class="mini-stat"><strong id="stat-published">0</strong><span>Publicados</span></div><div class="mini-stat"><strong id="stat-hidden">0</strong><span>Despublicados</span></div><div class="mini-stat"><strong id="stat-total">0</strong><span>Documentos</span></div></div>
+      <div class="admin-columns">
+        <section class="panel" id="editor-card"><div class="panel-heading"><div><h2 id="editor-title">Cargar nuevo procedimiento</h2><p id="editor-help">Agrega el PDF y los datos que verán los trabajadores.</p></div></div>
+          <form id="document-form" class="form-grid stacked">
+            <label>Nombre del procedimiento <span class="required">*</span><input id="doc-title" name="titulo" maxlength="150" required placeholder="Ej.: Procedimiento de carga de combustible" /></label>
+            <div class="form-two"><label>Versión <span class="required">*</span><input id="doc-version" name="version" maxlength="30" required placeholder="Ej.: 03" /></label><label>Categoría <select id="doc-category"><option>Operaciones</option><option>Seguridad</option><option>Salud ocupacional</option><option>Emergencias</option><option>Medioambiente</option><option>Otros</option></select></label></div>
+            <label>Descripción breve <span class="muted-inline">(opcional)</span><textarea id="doc-description" maxlength="350" rows="3" placeholder="Indica brevemente de qué trata."></textarea></label>
+            <label>Archivo PDF <span class="required" id="pdf-required">*</span><input id="doc-file" type="file" accept="application/pdf,.pdf" /><small id="file-hint">Solo PDF, hasta 15 MB. Se publicará automáticamente.</small></label>
+            <div class="form-actions"><button id="save-document" type="submit" class="button primary">Publicar procedimiento</button><button id="cancel-edit" type="button" class="button secondary" hidden>Cancelar edición</button></div>
+          </form>
+        </section>
+        <section class="panel admin-list-panel"><div class="panel-heading"><div><h2>Documentos gestionados</h2><p>Actualiza el título, reemplaza el PDF o retira un documento del catálogo.</p></div></div><div id="admin-list" class="admin-document-list"></div></section>
+      </div>
+      </div><!-- /procedures-workspace -->
+      <div id="incidents-workspace" hidden>
+        <div class="stats-grid incident-admin-stats">
+          <div class="mini-stat"><strong id="stat-incidents-active">0</strong><span>Registros publicados</span></div>
+          <div class="mini-stat"><strong id="stat-incidents-hidden">0</strong><span>Registros despublicados</span></div>
+          <div class="mini-stat"><strong id="stat-incidents-all">0</strong><span>Total guardados</span></div>
+        </div>
+        <div class="admin-columns">
+          <section class="panel" id="incident-editor-card">
+            <div class="panel-heading"><div><h2 id="incident-editor-title">Agregar hecho o aprendizaje</h2><p>Publica una reseña breve. Solo aparecerán cuatro datos: fecha, dónde fue, qué pasó y qué reforzar.</p></div></div>
+            <form id="incident-form" class="form-grid stacked">
+              <label>Clasificación <span class="required">*</span>
+                <select id="incident-type" required><option value="Top 4">TOP 4</option><option value="Accidente ESM">Accidente ESM</option><option value="Accidente Centinela">Accidente Centinela</option><option value="Aprendizaje">Aprendizaje</option></select>
+              </label>
+              <label>Fecha del hecho <span class="required">*</span><input id="incident-date" type="date" required /></label>
+              <label>Dónde fue <span class="required">*</span><input id="incident-place" maxlength="140" required placeholder="Ej.: Área de abastecimiento, Centinela" /></label>
+              <label>Qué pasó <span class="required">*</span><textarea id="incident-what" maxlength="700" rows="4" required placeholder="Describe el hecho de forma breve, sin nombres ni datos personales."></textarea></label>
+              <label>Qué reforzar <span class="required">*</span><textarea id="incident-lesson" maxlength="700" rows="4" required placeholder="Acción o aprendizaje preventivo que debe reforzarse."></textarea></label>
+              <div class="form-actions"><button class="button primary" type="submit" id="save-incident">Publicar registro</button><button id="cancel-incident-edit" type="button" class="button secondary" hidden>Cancelar edición</button></div>
+            </form>
+          </section>
+          <section class="panel admin-list-panel">
+            <div class="panel-heading"><div><h2>Registros gestionados</h2><p>Corrige o despublica los registros cuando sea necesario.</p></div></div>
+            <div id="admin-incident-list" class="admin-document-list"></div>
+          </section>
+        </div>
+      </div><!-- /incidents-workspace -->
+      <div class="footnote">Las actualizaciones aparecen al terminar el despliegue de GitHub Pages. Los registros son públicos; evita datos personales, detalles confidenciales o información no autorizada. «Despublicar» no borra el historial del repositorio.</div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-content"><span>Administración · ESM</span><span>Cierra la sesión al terminar, especialmente en equipos compartidos.</span></div></footer>
+</body>
+</html>

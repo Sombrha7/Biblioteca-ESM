@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#102a43" />
+  <meta name="description" content="Biblioteca de procedimientos vigentes ESM. Consulta y visualiza documentos PDF de forma simple." />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Biblioteca de Procedimientos | ESM</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="Biblioteca ESM - Inicio">
+        <span class="brand-mark" aria-hidden="true">E</span>
+        <span class="brand-text"><strong>ESM</strong><small>Biblioteca documental</small></span>
+      </a>
+      <a class="header-action" href="admin.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a4 4 0 0 1 4 4v2h1a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-8a3 3 0 0 1 3-3h1V6a4 4 0 0 1 4-4Zm-2 6h4V6a2 2 0 0 0-4 0v2Z"/></svg><span>Administración</span></a>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <span class="eyebrow"><span class="status-pulse"></span> ACCESO LIBRE · SIN REGISTRO</span>
+        <h1>Procedimientos a un clic.</h1>
+        <p>Encuentra y consulta la versión vigente de cada procedimiento. Selecciona un documento y visualiza su PDF directamente desde tu celular.</p>
+        <div class="hero-details"><span>✓ Sin usuario ni contraseña</span><span>✓ Documentos en PDF</span><span>✓ Compatible con celulares</span></div>
+      </div>
+    </section>
+
+    <nav class="container two-portals" aria-label="Secciones de consulta">
+      <a class="portal-card active-portal" href="./" aria-current="page"><span class="portal-symbol" aria-hidden="true">📄</span><span><strong>Procedimientos</strong><small>PDF y versiones vigentes</small></span><span class="portal-arrow" aria-hidden="true">›</span></a>
+      <a class="portal-card" href="accidentabilidad.html"><span class="portal-symbol" aria-hidden="true">🛡️</span><span><strong>Accidentabilidad y TOP 4</strong><small>Hechos y aprendizajes por año</small></span><span class="portal-arrow" aria-hidden="true">›</span></a>
+    </nav>
+    <section class="container content-section" aria-label="Listado de procedimientos">
+      <div class="section-head">
+        <div><p class="section-kicker">CONSULTA DOCUMENTAL</p><h2>Procedimientos disponibles</h2><p class="section-sub">Busca por nombre, categoría o versión.</p></div>
+        <div class="counter" id="counter" aria-live="polite">Cargando...</div>
+      </div>
+      <div class="search-wrap">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7"/><path d="m16 16 5 5"/></svg>
+        <input id="search" type="search" placeholder="Ej.: carga de combustible, derrame, EPP..." aria-label="Buscar procedimiento" autocomplete="off" />
+        <button id="clear-search" class="clear-search" type="button" aria-label="Borrar búsqueda" hidden>×</button>
+      </div>
+      <div id="filters" class="filter-row" role="group" aria-label="Filtrar por categoría"></div>
+      <div id="notice" class="notice" aria-live="polite" hidden></div>
+      <div id="cards" class="document-grid" aria-live="polite"></div>
+      <div id="empty" class="empty-state" hidden>
+        <div class="empty-icon" aria-hidden="true">📄</div>
+        <h3 id="empty-title">No hay procedimientos publicados</h3>
+        <p id="empty-detail">Cuando se carguen documentos aparecerán aquí.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-content"><span>ESM · Biblioteca de procedimientos</span><span>Consulta siempre la versión vigente. Ante dudas, contacta a tu supervisión.</span></div></footer>
+
+  <dialog id="pdf-dialog" class="pdf-dialog" aria-label="Visualizador de procedimiento">
+    <div class="dialog-shell">
+      <div class="dialog-head"><div class="dialog-name"><p>DOCUMENTO PDF</p><h2 id="viewer-title">Procedimiento</h2><span id="viewer-version"></span></div><button id="close-viewer" type="button" class="icon-button" aria-label="Cerrar documento">✕</button></div>
+      <iframe id="pdf-frame" title="Visualizador PDF" loading="lazy"></iframe>
+      <div class="dialog-foot"><span>Si tu celular no lo muestra aquí, ábrelo directamente.</span><a id="viewer-link" class="button primary small" href="#" target="_blank" rel="noopener">Abrir PDF ↗</a></div>
+    </div>
+  </dialog>
+</body>
+</html>

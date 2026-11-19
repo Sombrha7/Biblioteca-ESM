@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#102a43" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="description" content="Resumen público de accidentabilidad, TOP 4 y aprendizajes preventivos ESM." />
+  <title>Accidentabilidad y TOP 4 | ESM</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="accidentabilidad.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="ESM - Biblioteca de procedimientos">
+        <span class="brand-mark" aria-hidden="true">E</span>
+        <span class="brand-text"><strong>ESM</strong><small>Seguridad y aprendizajes</small></span>
+      </a>
+      <a class="header-action" href="admin.html">Administración</a>
+    </div>
+  </header>
+  <main>
+    <section class="hero hero-incidents">
+      <div class="container hero-content">
+        <span class="eyebrow"><span class="status-pulse"></span> INFORMACIÓN PREVENTIVA · ACCESO LIBRE</span>
+        <h1>Accidentabilidad y TOP 4</h1>
+        <p>Conoce los hechos reportados y los aprendizajes que debemos reforzar para prevenir su repetición.</p>
+        <div class="hero-details"><span>✓ Sin registro</span><span>✓ Información breve</span><span>✓ Actualizaciones por año</span></div>
+      </div>
+    </section>
+    <nav class="container two-portals" aria-label="Secciones de consulta">
+      <a class="portal-card" href="./"><span class="portal-symbol" aria-hidden="true">📄</span><span><strong>Procedimientos</strong><small>PDF y versiones vigentes</small></span><span class="portal-arrow" aria-hidden="true">›</span></a>
+      <a class="portal-card active-portal" href="accidentabilidad.html" aria-current="page"><span class="portal-symbol" aria-hidden="true">🛡️</span><span><strong>Accidentabilidad y TOP 4</strong><small>Hechos y aprendizajes por año</small></span><span class="portal-arrow" aria-hidden="true">›</span></a>
+    </nav>
+    <section class="container content-section" aria-labelledby="incident-heading">
+      <div class="section-head section-head-year">
+        <div><p class="section-kicker">COMUNICACIÓN PREVENTIVA</p><h2 id="incident-heading">Resumen anual</h2><p class="section-sub">Selecciona el año para consultar sus registros.</p></div>
+        <label class="year-picker">Año <select id="year" aria-label="Seleccionar año"></select></label>
+      </div>
+      <div class="year-stats" aria-live="polite">
+        <div class="year-stat feature-stat"><span>ACCIDENTES REGISTRADOS</span><strong id="accidents-total">0</strong><small id="year-label">Total del año</small></div>
+        <div class="year-stat"><span>Accidente ESM</span><strong id="accidents-esm">0</strong></div>
+        <div class="year-stat"><span>Accidente Centinela</span><strong id="accidents-centinela">0</strong></div>
+        <div class="year-stat"><span>TOP 4</span><strong id="count-top4">0</strong></div>
+        <div class="year-stat"><span>Aprendizajes</span><strong id="count-learning">0</strong></div>
+      </div>
+      <p class="definition-note">El total anual considera solo los registros clasificados como <strong>Accidente ESM</strong> o <strong>Accidente Centinela</strong>. TOP 4 y Aprendizajes se informan por separado. Son registros informativos, no tasas de accidentabilidad.</p>
+      <div class="section-head incident-section-head">
+        <div><p class="section-kicker">REGISTROS DEL AÑO</p><h2>¿Qué pasó y qué debemos reforzar?</h2><p class="section-sub">Información resumida para consulta en terreno.</p></div>
+        <div id="incident-counter" class="counter">Cargando...</div>
+      </div>
+      <div id="incident-filters" class="filter-row" role="group" aria-label="Filtrar registros por clasificación"></div>
+      <div id="incident-notice" class="notice" hidden role="status" aria-live="polite"></div>
+      <div id="incident-cards" class="incident-grid" aria-live="polite"></div>
+      <div id="incident-empty" class="empty-state" hidden>
+        <div class="empty-icon" aria-hidden="true">🛡️</div>
+        <h3 id="incident-empty-title">Sin registros publicados</h3>
+        <p id="incident-empty-detail">Cuando se publiquen novedades aparecerán aquí.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-content"><span>ESM · Accidentabilidad, TOP 4 y aprendizajes</span><span>Ante un riesgo, detén la actividad y comunica a tu supervisión conforme a los procedimientos vigentes.</span></div></footer>
+</body>
+</html>
