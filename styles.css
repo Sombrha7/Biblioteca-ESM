@@ -49,3 +49,56 @@
 .qr-main{padding-top:43px;padding-bottom:65px}.qr-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.qr-panel{text-align:center}.qr-panel h2{font-size:20px;margin:2px 0 6px}.qr-panel>p{font-size:13px;color:#617b8c}.qr-canvas{display:grid;place-items:center;width:fit-content;max-width:100%;margin:18px auto;background:#fff;padding:14px;border:1px solid #e2e8ec}.qr-canvas img,.qr-canvas canvas{max-width:100%;height:auto}.qr-url{font-size:11px!important;line-height:1.5;overflow-wrap:anywhere;min-height:45px}.qr-panel button{width:100%}@media(max-width:640px){.qr-grid{grid-template-columns:1fr}}
 
 .header-links{display:flex;align-items:center;gap:7px;flex-wrap:wrap;justify-content:end}@media(max-width:480px){.header-links .header-action{font-size:10px;padding:0 7px}}
+
+
+/* =========================================================
+   Actualizacion visual ESM — 20-11-2026
+   No modifica las funciones ni los datos de la biblioteca.
+   ========================================================= */
+.site-header{
+  background:#102a43;
+  border-bottom:1px solid rgba(255,255,255,.13);
+}
+.header-inner{min-height:93px}
+.brand{display:inline-flex;align-items:center;min-height:68px}
+.brand-logo{display:block;width:198px;max-width:46vw;height:auto;max-height:76px;object-fit:contain;object-position:left center}
+.header-action{
+  background:rgba(255,255,255,.07);
+  color:#f4fbff;
+  border-color:rgba(255,255,255,.28);
+}
+.header-action:hover,.header-action:focus-visible{
+  background:rgba(255,255,255,.15);
+  color:#fff;
+  border-color:rgba(255,255,255,.7);
+}
+.hero:not(.hero-incidents){
+  background-image:
+    linear-gradient(90deg,rgba(8,29,48,.98) 0%,rgba(10,39,58,.94) 34%,rgba(12,53,68,.70) 64%,rgba(12,63,74,.29) 100%),
+    url("assets/enex-mineria.jpg");
+  background-size:cover;
+  background-position:center,center 73%;
+  background-repeat:no-repeat;
+}
+.hero:not(.hero-incidents)::after{display:none}
+.hero:not(.hero-incidents) .hero-content{padding:82px 0 87px}
+.hero:not(.hero-incidents) h1{max-width:690px;margin:0 0 18px;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.hero:not(.hero-incidents) p{max-width:620px;color:#f2f7fa;text-shadow:0 1px 12px rgba(0,0,0,.35)}
+.hero-incidents .hero-content{padding:66px 0 72px}
+.hero-incidents h1{margin:0 0 16px}
+@media(max-width:700px){
+  .header-inner{min-height:77px}
+  .brand-logo{width:151px;max-height:61px}
+  .hero:not(.hero-incidents){
+    background-image:
+      linear-gradient(90deg,rgba(7,29,48,.96) 0%,rgba(9,39,58,.87) 61%,rgba(12,54,70,.62) 100%),
+      url("assets/enex-mineria.jpg");
+    background-position:center,68% 75%;
+  }
+  .hero:not(.hero-incidents) .hero-content{padding:56px 0 62px}
+  .hero-incidents .hero-content{padding:52px 0 59px}
+}
+@media(max-width:360px){
+  .brand-logo{width:133px}
+  .header-action{font-size:10px;padding-inline:8px}
+}
