@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-20T12:56:05.725Z",
+  "actualizado": "2026-11-20T12:56:39.700Z",
   "documentos": [
     {
       "id": "c21f4f33-cf61-4317-948d-82d86a743097",
@@ -55,6 +55,17 @@
       "activo": true,
       "creado": "2026-11-20T12:55:30.064Z",
       "actualizado": "2026-11-20T12:55:30.064Z"
+    },
+    {
+      "id": "583ccede-6ad7-434f-acab-71471077b75e",
+      "titulo": "Procedimiento Abastecimiento de CL con Camión Tanque",
+      "version": "18",
+      "categoria": "Seguridad",
+      "descripcion": "",
+      "archivo": "pdfs/583ccede-6ad7-434f-acab-71471077b75e.pdf",
+      "activo": true,
+      "creado": "2026-11-20T12:56:39.221Z",
+      "actualizado": "2026-11-20T12:56:39.221Z"
     }
   ]
 }
