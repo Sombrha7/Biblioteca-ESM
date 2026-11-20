@@ -102,3 +102,10 @@
   .brand-logo{width:133px}
   .header-action{font-size:10px;padding-inline:8px}
 }
+
+/* PDF opcional para Accidentabilidad y TOP 4 (solo aparece cuando existe adjunto) */
+.incident-pdf-link{display:inline-flex;align-items:center;justify-content:center;align-self:flex-start;gap:8px;padding:10px 14px;border:1px solid #a5d2d4;border-radius:10px;background:#edf8f9;color:#076b75;font-size:12px;font-weight:800;text-decoration:none;transition:background .15s}
+.incident-pdf-link:hover,.incident-pdf-link:focus-visible{background:#d9f1f3;outline-offset:3px}
+.pdf-remove-label{flex-direction:row!important;align-items:flex-start!important;gap:10px!important;font-size:12px!important;font-weight:600!important;color:#546e7f!important;line-height:1.5}
+.pdf-remove-label[hidden]{display:none!important}
+.pdf-remove-label input[type=checkbox]{width:17px;height:17px;min-height:17px;flex:0 0 17px;margin-top:1px;accent-color:#087d86}

@@ -49,7 +49,18 @@
       const place=make('div','incident-field');place.append(make('span','incident-field-label','DÓNDE FUE'),make('p',null,r.lugar));
       const what=make('div','incident-field');what.append(make('span','incident-field-label','QUÉ PASÓ'),make('p',null,r.paso));
       const lesson=make('div','incident-field lesson-field');lesson.append(make('span','incident-field-label','QUÉ REFORZAR'),make('p',null,r.reforzar));
-      card.append(header,place,what,lesson);itemsEl.append(card);
+      card.append(header,place,what,lesson);
+      // El enlace solo aparece cuando el administrador adjuntó un PDF.
+      // Validar la ruta evita insertar enlaces externos o arbitrarios en el catálogo.
+      if(typeof r.archivo==='string' && /^pdfs\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\.pdf$/i.test(r.archivo)){
+        const pdf=make('a','incident-pdf-link','📄 Ver PDF complementario');
+        pdf.href=r.archivo;
+        pdf.target='_blank';
+        pdf.rel='noopener noreferrer';
+        pdf.setAttribute('aria-label',`Abrir PDF complementario de ${r.tipo}, ${formatDate(r.fecha)} (nueva pestaña)`);
+        card.append(pdf);
+      }
+      itemsEl.append(card);
     }
   }
   $('year').addEventListener('change',e=>{currentYear=Number(e.target.value);render();});

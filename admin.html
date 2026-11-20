@@ -62,7 +62,7 @@
         </div>
         <div class="admin-columns">
           <section class="panel" id="incident-editor-card">
-            <div class="panel-heading"><div><h2 id="incident-editor-title">Agregar hecho o aprendizaje</h2><p>Publica una reseña breve. Solo aparecerán cuatro datos: fecha, dónde fue, qué pasó y qué reforzar.</p></div></div>
+            <div class="panel-heading"><div><h2 id="incident-editor-title">Agregar hecho o aprendizaje</h2><p>Publica una reseña breve con fecha, dónde fue, qué pasó y qué reforzar. También puedes adjuntar un PDF de respaldo, si corresponde.</p></div></div>
             <form id="incident-form" class="form-grid stacked">
               <label>Clasificación <span class="required">*</span>
                 <select id="incident-type" required><option value="Top 4">TOP 4</option><option value="Accidente ESM">Accidente ESM</option><option value="Accidente Centinela">Accidente Centinela</option><option value="Aprendizaje">Aprendizaje</option></select>
@@ -71,6 +71,13 @@
               <label>Dónde fue <span class="required">*</span><input id="incident-place" maxlength="140" required placeholder="Ej.: Área de abastecimiento, Centinela" /></label>
               <label>Qué pasó <span class="required">*</span><textarea id="incident-what" maxlength="700" rows="4" required placeholder="Describe el hecho de forma breve, sin nombres ni datos personales."></textarea></label>
               <label>Qué reforzar <span class="required">*</span><textarea id="incident-lesson" maxlength="700" rows="4" required placeholder="Acción o aprendizaje preventivo que debe reforzarse."></textarea></label>
+              <label>PDF complementario <span class="muted-inline">(opcional)</span>
+                <input id="incident-file" type="file" accept="application/pdf,.pdf" />
+                <small id="incident-file-hint">Puedes publicar sin PDF. Si adjuntas uno, debe ser PDF y pesar máximo 15 MB.</small>
+              </label>
+              <label id="incident-remove-wrap" class="pdf-remove-label" hidden>
+                <input id="incident-remove-pdf" type="checkbox" /> Quitar el PDF actual de la ficha pública (no elimina su historial en GitHub)
+              </label>
               <div class="form-actions"><button class="button primary" type="submit" id="save-incident">Publicar registro</button><button id="cancel-incident-edit" type="button" class="button secondary" hidden>Cancelar edición</button></div>
             </form>
           </section>

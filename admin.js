@@ -217,6 +217,10 @@
     state.incidentEditId=null;
     $('incident-form').reset();
     $('incident-type').value='Top 4';
+    $('incident-file').value='';
+    $('incident-remove-pdf').checked=false;
+    $('incident-remove-wrap').hidden=true;
+    $('incident-file-hint').textContent='Puedes publicar sin PDF. Si adjuntas uno, debe ser PDF y pesar máximo 15 MB.';
     $('incident-editor-title').textContent='Agregar hecho o aprendizaje';
     $('save-incident').textContent='Publicar registro';
     $('cancel-incident-edit').hidden=true;
@@ -229,6 +233,12 @@
     $('incident-place').value=item.lugar;
     $('incident-what').value=item.paso;
     $('incident-lesson').value=item.reforzar;
+    $('incident-file').value='';
+    $('incident-remove-pdf').checked=false;
+    $('incident-remove-wrap').hidden=!item.archivo;
+    $('incident-file-hint').textContent=item.archivo
+      ? 'Ya existe un PDF adjunto. Déjalo vacío para conservarlo o selecciona otro para reemplazarlo (máx. 15 MB).'
+      : 'Puedes dejarlo vacío o agregar un PDF (máx. 15 MB).';
     $('incident-editor-title').textContent='Editar registro';
     $('save-incident').textContent='Guardar cambios';
     $('cancel-incident-edit').hidden=false;
@@ -245,6 +255,7 @@
       const meta=el('div','admin-item-meta');
       meta.append(el('span','tag '+(item.activo?'current':'hidden-tag'),item.activo?'Publicado':'Despublicado'));
       meta.append(el('span',null,`${item.tipo} · ${item.fecha} · ${item.lugar}`));
+      if(item.archivo)meta.append(el('span','tag neutral','PDF adjunto'));
       node.append(meta);
       const actions=el('div','admin-item-actions');
       const edit=el('button','action-link','Editar');edit.type='button';edit.addEventListener('click',()=>editIncident(item));
@@ -270,20 +281,38 @@
     const lugar=$('incident-place').value.trim();
     const paso=$('incident-what').value.trim();
     const reforzar=$('incident-lesson').value.trim();
+    const file=$('incident-file').files[0]; // El PDF no es obligatorio en ningún tipo de registro.
+    const removePdf=$('incident-remove-pdf').checked;
     if(!incidentTypes.includes(tipo)||!validIncidentDate(fecha)||!lugar||!paso||!reforzar){alertMessage('Completa la clasificación, fecha y los tres campos de texto.','error');return;}
+    if(file && removePdf){alertMessage('Selecciona solo una opción: reemplazar el PDF o quitar el adjunto actual.','error');return;}
+    if(file){
+      if(!file.name.toLowerCase().endsWith('.pdf')||(file.type&&file.type!=='application/pdf')){alertMessage('Solo se permiten archivos PDF.','error');return;}
+      if(file.size>15*1024*1024){alertMessage('El PDF supera los 15 MB. Comprímelo antes de subirlo.','error');return;}
+      if(file.size===0){alertMessage('El PDF seleccionado está vacío.','error');return;}
+      const signature=new Uint8Array(await file.slice(0,5).arrayBuffer());
+      if(String.fromCharCode(...signature)!=='%PDF-'){alertMessage('El archivo seleccionado no parece ser un PDF válido.','error');return;}
+    }
     const id=state.incidentEditId||crypto.randomUUID();
     const isEdit=!!state.incidentEditId;
+    // El Worker actual permite pdfs/<UUID>.pdf, sin necesidad de modificar Cloudflare.
+    const filepath=`pdfs/${id}.pdf`;
     const now=new Date().toISOString();
     toggleBusy(true);
     try{
+      if(file){
+        const found=await getFile(filepath);
+        const bytes=new Uint8Array(await file.arrayBuffer());
+        await putFile(filepath,toBase64(bytes),found?.sha,`${isEdit?'Actualizar':'Adjuntar'} PDF de ${tipo}: ${fecha}`);
+      }
       await mutateIncidents(current=>{
         const previous=current.find(x=>x.id===id);
-        const record={id,tipo,fecha,lugar,paso,reforzar,activo:previous?previous.activo:true,creado:previous?.creado||now,actualizado:now};
+        const archivo=file?filepath:(removePdf?null:(previous?.archivo||null));
+        const record={id,tipo,fecha,lugar,paso,reforzar,activo:previous?previous.activo:true,creado:previous?.creado||now,actualizado:now,...(archivo?{archivo}:{})};
         return previous?current.map(x=>x.id===id?record:x):[...current,record];
       },`${isEdit?'Actualizar':'Publicar'} registro ${tipo}: ${fecha}`);
       resetIncidentEditor();
-      alertMessage('Registro guardado. Aparecerá en la biblioteca de Accidentabilidad y TOP 4 después de publicarse GitHub Pages.','success');
-    }catch(err){alertMessage('No se pudo guardar el registro: '+err.message,'error');}
+      alertMessage('Registro guardado'+(file?' con PDF adjunto':'')+'. Aparecerá en la biblioteca de Accidentabilidad y TOP 4 al finalizar el despliegue de GitHub Pages.','success');
+    }catch(err){alertMessage('No se pudo completar la publicación: '+err.message+'. Si el PDF alcanzó a subirse antes del error, vuelve a guardar el formulario para sincronizar el registro.','error');}
     finally{toggleBusy(false);}
   });
 })();
