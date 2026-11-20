@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-20T12:55:30.529Z",
+  "actualizado": "2026-11-20T12:56:05.725Z",
   "documentos": [
     {
       "id": "c21f4f33-cf61-4317-948d-82d86a743097",
@@ -25,14 +25,14 @@
     },
     {
       "id": "1b651d3d-1016-4a48-8c91-f34b7964acd0",
-      "titulo": "Procedimiento Recepción de Combustible V14",
+      "titulo": "Procedimiento Recepción de Combustible",
       "version": "14",
       "categoria": "Seguridad",
       "descripcion": "",
       "archivo": "pdfs/1b651d3d-1016-4a48-8c91-f34b7964acd0.pdf",
       "activo": true,
       "creado": "2026-11-20T12:54:25.740Z",
-      "actualizado": "2026-11-20T12:54:25.740Z"
+      "actualizado": "2026-11-20T12:56:05.226Z"
     },
     {
       "id": "553c1762-4635-45f5-b5b1-8ab2e18380f6",
