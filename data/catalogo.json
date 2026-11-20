@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-20T12:58:56.803Z",
+  "actualizado": "2026-11-20T12:59:21.920Z",
   "documentos": [
     {
       "id": "c21f4f33-cf61-4317-948d-82d86a743097",
@@ -110,6 +110,17 @@
       "activo": true,
       "creado": "2026-11-20T12:58:56.361Z",
       "actualizado": "2026-11-20T12:58:56.361Z"
+    },
+    {
+      "id": "22c9a294-306a-4e50-904c-0dc910d45b32",
+      "titulo": "Instructivo Cambio de productos en Camión Lubricador",
+      "version": "2",
+      "categoria": "Seguridad",
+      "descripcion": "",
+      "archivo": "pdfs/22c9a294-306a-4e50-904c-0dc910d45b32.pdf",
+      "activo": true,
+      "creado": "2026-11-20T12:59:21.463Z",
+      "actualizado": "2026-11-20T12:59:21.463Z"
     }
   ]
 }
