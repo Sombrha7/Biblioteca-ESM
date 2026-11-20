@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-20T12:57:53.035Z",
+  "actualizado": "2026-11-20T12:58:23.528Z",
   "documentos": [
     {
       "id": "c21f4f33-cf61-4317-948d-82d86a743097",
@@ -88,6 +88,17 @@
       "activo": true,
       "creado": "2026-11-20T12:57:52.566Z",
       "actualizado": "2026-11-20T12:57:52.566Z"
+    },
+    {
+      "id": "39830074-07b2-4f0b-9946-dcd0fc336604",
+      "titulo": "Procedimiento Succión de fluido residual",
+      "version": "10",
+      "categoria": "Seguridad",
+      "descripcion": "",
+      "archivo": "pdfs/39830074-07b2-4f0b-9946-dcd0fc336604.pdf",
+      "activo": true,
+      "creado": "2026-11-20T12:58:23.076Z",
+      "actualizado": "2026-11-20T12:58:23.076Z"
     }
   ]
 }
