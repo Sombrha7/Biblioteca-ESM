@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-20T12:54:26.254Z",
+  "actualizado": "2026-11-20T12:54:55.747Z",
   "documentos": [
     {
       "id": "c21f4f33-cf61-4317-948d-82d86a743097",
@@ -33,6 +33,17 @@
       "activo": true,
       "creado": "2026-11-20T12:54:25.740Z",
       "actualizado": "2026-11-20T12:54:25.740Z"
+    },
+    {
+      "id": "553c1762-4635-45f5-b5b1-8ab2e18380f6",
+      "titulo": "Procedimiento Trasvasije de Combustible o Lubricante",
+      "version": "2",
+      "categoria": "Seguridad",
+      "descripcion": "",
+      "archivo": "pdfs/553c1762-4635-45f5-b5b1-8ab2e18380f6.pdf",
+      "activo": true,
+      "creado": "2026-11-20T12:54:55.282Z",
+      "actualizado": "2026-11-20T12:54:55.282Z"
     }
   ]
 }
