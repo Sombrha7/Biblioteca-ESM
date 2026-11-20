@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-20T12:56:39.700Z",
+  "actualizado": "2026-11-20T12:57:16.823Z",
   "documentos": [
     {
       "id": "c21f4f33-cf61-4317-948d-82d86a743097",
@@ -66,6 +66,17 @@
       "activo": true,
       "creado": "2026-11-20T12:56:39.221Z",
       "actualizado": "2026-11-20T12:56:39.221Z"
+    },
+    {
+      "id": "73da4c67-e610-4006-b5a8-a35c649e3968",
+      "titulo": "Procedimiento de Relleno de camión lubricador",
+      "version": "10",
+      "categoria": "Seguridad",
+      "descripcion": "",
+      "archivo": "pdfs/73da4c67-e610-4006-b5a8-a35c649e3968.pdf",
+      "activo": true,
+      "creado": "2026-11-20T12:57:16.306Z",
+      "actualizado": "2026-11-20T12:57:16.306Z"
     }
   ]
 }
