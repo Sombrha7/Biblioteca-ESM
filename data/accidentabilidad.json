@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-20T12:47:24.440Z",
+  "actualizado": "2026-11-20T12:51:26.401Z",
   "registros": [
     {
       "id": "24fe4098-85cf-4ddb-8913-390505d42990",
@@ -12,6 +12,18 @@
       "creado": "2026-11-20T12:47:20.757Z",
       "actualizado": "2026-11-20T12:47:20.757Z",
       "archivo": "pdfs/24fe4098-85cf-4ddb-8913-390505d42990.pdf"
+    },
+    {
+      "id": "91299ece-07ad-48c0-8e4e-045316f1d4a2",
+      "tipo": "Aprendizaje",
+      "fecha": "2026-08-16",
+      "lugar": "SI Perforación y tronadura",
+      "paso": "LECCIONES APRENDIDADS - Accidente con Tiempo Perdido - Aprisionamiento de dedo pulgar en el cambio de un tricono",
+      "reforzar": "Toda herramienta crítica, debe contar con un plan de inspección y mantención, el cual, deber estar al día.\n\nTodas las herramientas críticas deben contar un criterio de establecido para definir si está apta para su uso, debe ser enviada al área de mantenimiento o descartar de la operación.\n\nSe debe revisar si el uso de estas herramientas críticas se encuentran contendidos en las matrices de riesgos, identificando claramente los controles para evitar un accidente.\n\nSe deben evaluar las tareas con exposición de las extremidades y revisar si existe la forma de realizar la tarea sin exponer las manos a la línea de fuego directamente.\n\nSe debe fortalecer el uso del Yo Digo No en la operación,",
+      "activo": true,
+      "creado": "2026-11-20T12:51:22.274Z",
+      "actualizado": "2026-11-20T12:51:22.274Z",
+      "archivo": "pdfs/91299ece-07ad-48c0-8e4e-045316f1d4a2.pdf"
     }
   ]
 }
