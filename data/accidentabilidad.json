@@ -1,4 +1,17 @@
 {
-  "actualizado": null,
-  "registros": []
+  "actualizado": "2026-11-20T12:47:24.440Z",
+  "registros": [
+    {
+      "id": "24fe4098-85cf-4ddb-8913-390505d42990",
+      "tipo": "Top 4",
+      "fecha": "2026-01-01",
+      "lugar": "TOP 4  Desde el 1 de enero al 31 de marzo 2026",
+      "paso": "1. CAEX Pierde Control y queda atravesado en rampla - Antucoya.\n2. Material se deslizó por la frente de carguío - Los Pelambres\n3. Camión aljibe sufrió falla mecánica del sistema de suspensión - Saldivar\n4. Proyección de ácido alcanzó a trabajador - FCAB",
+      "reforzar": "Estrategias de Control aplicables a cada Evento.",
+      "activo": true,
+      "creado": "2026-11-20T12:47:20.757Z",
+      "actualizado": "2026-11-20T12:47:20.757Z",
+      "archivo": "pdfs/24fe4098-85cf-4ddb-8913-390505d42990.pdf"
+    }
+  ]
 }
