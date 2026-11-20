@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-20T12:58:23.528Z",
+  "actualizado": "2026-11-20T12:58:56.803Z",
   "documentos": [
     {
       "id": "c21f4f33-cf61-4317-948d-82d86a743097",
@@ -99,6 +99,17 @@
       "activo": true,
       "creado": "2026-11-20T12:58:23.076Z",
       "actualizado": "2026-11-20T12:58:23.076Z"
+    },
+    {
+      "id": "e92dbcad-a015-4b29-8fbe-be1483c6e10e",
+      "titulo": "Procedimiento de descarga de lubricantes en lubricantera",
+      "version": "6",
+      "categoria": "Seguridad",
+      "descripcion": "",
+      "archivo": "pdfs/e92dbcad-a015-4b29-8fbe-be1483c6e10e.pdf",
+      "activo": true,
+      "creado": "2026-11-20T12:58:56.361Z",
+      "actualizado": "2026-11-20T12:58:56.361Z"
     }
   ]
 }
