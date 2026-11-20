@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-20T12:53:09.408Z",
+  "actualizado": "2026-11-20T12:53:42.249Z",
   "documentos": [
     {
       "id": "c21f4f33-cf61-4317-948d-82d86a743097",
@@ -11,6 +11,17 @@
       "activo": true,
       "creado": "2026-11-20T12:52:45.692Z",
       "actualizado": "2026-11-20T12:53:08.978Z"
+    },
+    {
+      "id": "f7b52422-0fec-421b-9c3f-aa2a64992dc6",
+      "titulo": "Procedimiento Abastecimiento Petroleras SM",
+      "version": "13",
+      "categoria": "Operaciones",
+      "descripcion": "",
+      "archivo": "pdfs/f7b52422-0fec-421b-9c3f-aa2a64992dc6.pdf",
+      "activo": true,
+      "creado": "2026-11-20T12:53:41.788Z",
+      "actualizado": "2026-11-20T12:53:41.788Z"
     }
   ]
 }
