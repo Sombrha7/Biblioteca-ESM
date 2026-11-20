@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-20T12:54:55.747Z",
+  "actualizado": "2026-11-20T12:55:30.529Z",
   "documentos": [
     {
       "id": "c21f4f33-cf61-4317-948d-82d86a743097",
@@ -44,6 +44,17 @@
       "activo": true,
       "creado": "2026-11-20T12:54:55.282Z",
       "actualizado": "2026-11-20T12:54:55.282Z"
+    },
+    {
+      "id": "50d01fa2-a503-4d50-8f01-29c3815882fe",
+      "titulo": "Procedimiento Abastecimiento Combustible a CAEX Autónomos en Petrolera",
+      "version": "2",
+      "categoria": "Seguridad",
+      "descripcion": "",
+      "archivo": "pdfs/50d01fa2-a503-4d50-8f01-29c3815882fe.pdf",
+      "activo": true,
+      "creado": "2026-11-20T12:55:30.064Z",
+      "actualizado": "2026-11-20T12:55:30.064Z"
     }
   ]
 }
