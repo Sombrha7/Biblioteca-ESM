@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-20T12:59:46.474Z",
+  "actualizado": "2026-11-20T13:00:37.878Z",
   "documentos": [
     {
       "id": "c21f4f33-cf61-4317-948d-82d86a743097",
@@ -132,6 +132,17 @@
       "activo": true,
       "creado": "2026-11-20T12:59:46.011Z",
       "actualizado": "2026-11-20T12:59:46.011Z"
+    },
+    {
+      "id": "4158ee8d-bc8c-4d40-afb6-59bb2db1fafc",
+      "titulo": "Procedimiento Suministro de Productos con Camión Lubricante a Equipos Móviles Mina",
+      "version": "13",
+      "categoria": "Seguridad",
+      "descripcion": "",
+      "archivo": "pdfs/4158ee8d-bc8c-4d40-afb6-59bb2db1fafc.pdf",
+      "activo": true,
+      "creado": "2026-11-20T13:00:37.330Z",
+      "actualizado": "2026-11-20T13:00:37.330Z"
     }
   ]
 }
