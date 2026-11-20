@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-20T12:57:16.823Z",
+  "actualizado": "2026-11-20T12:57:53.035Z",
   "documentos": [
     {
       "id": "c21f4f33-cf61-4317-948d-82d86a743097",
@@ -77,6 +77,17 @@
       "activo": true,
       "creado": "2026-11-20T12:57:16.306Z",
       "actualizado": "2026-11-20T12:57:16.306Z"
+    },
+    {
+      "id": "632305fe-9c8f-4339-ab76-efe2eaec265b",
+      "titulo": "Procedimiento Relleno de camion lubricador en truck shop",
+      "version": "10",
+      "categoria": "Operaciones",
+      "descripcion": "",
+      "archivo": "pdfs/632305fe-9c8f-4339-ab76-efe2eaec265b.pdf",
+      "activo": true,
+      "creado": "2026-11-20T12:57:52.566Z",
+      "actualizado": "2026-11-20T12:57:52.566Z"
     }
   ]
 }
