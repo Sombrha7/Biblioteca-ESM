@@ -1,4 +1,16 @@
 {
-  "actualizado": null,
-  "documentos": []
+  "actualizado": "2026-11-20T12:52:46.206Z",
+  "documentos": [
+    {
+      "id": "c21f4f33-cf61-4317-948d-82d86a743097",
+      "titulo": "Procedimiento Carga de camiones tanque",
+      "version": "11",
+      "categoria": "Seguridad",
+      "descripcion": "",
+      "archivo": "pdfs/c21f4f33-cf61-4317-948d-82d86a743097.pdf",
+      "activo": true,
+      "creado": "2026-11-20T12:52:45.692Z",
+      "actualizado": "2026-11-20T12:52:45.692Z"
+    }
+  ]
 }
