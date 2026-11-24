@@ -1,6 +1,8 @@
-/* Solo la portada de la Biblioteca ESM. No modifica estilos compartidos. */
+/* Cabecera y navegación de las dos páginas públicas de la Biblioteca ESM. */
 .portada-hero {
-  min-block-size: clamp(15.5rem, 23.5vw, 18.5rem);
+  display: flex;
+  flex-direction: column;
+  min-block-size: clamp(16.75rem, 25vw, 18.5rem);
   color: #fff;
   background-color: #102a43;
   background-image:
@@ -45,7 +47,8 @@
 }
 
 .portada-titulo {
-  padding-block: .125rem 3rem;
+  margin-block-start: auto;
+  padding-block: 1.75rem 1.5rem;
 }
 
 .portada-titulo h1 {
@@ -56,6 +59,14 @@
   line-height: 1.08;
   letter-spacing: -.04em;
   text-wrap: balance;
+}
+
+.portada-faena {
+  margin: .375rem 0 0;
+  color: #f0f7fc;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .portada-accesos .portal-card {
@@ -90,8 +101,8 @@
 
 @media (max-width: 640px) {
   .portada-hero {
-    min-block-size: 12.75rem;
-    background-position: center, 67% 66%;
+    min-block-size: 15rem;
+    background-position: center, 67% 68%;
   }
 
   .portada-hero .header-inner {
@@ -105,7 +116,7 @@
   }
 
   .portada-titulo {
-    padding-block: .25rem 2rem;
+    padding-block: 1.25rem 1.125rem;
   }
 
   .portada-titulo h1 {
