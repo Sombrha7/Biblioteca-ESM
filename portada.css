@@ -1,0 +1,119 @@
+/* Solo la portada de la Biblioteca ESM. No modifica estilos compartidos. */
+.portada-hero {
+  min-block-size: clamp(15.5rem, 23.5vw, 18.5rem);
+  color: #fff;
+  background-color: #102a43;
+  background-image:
+    linear-gradient(100deg, rgba(7, 29, 47, .97) 0%, rgba(8, 31, 48, .86) 43%, rgba(9, 34, 53, .38) 100%),
+    url("assets/enex-mineria.jpg");
+  background-size: cover;
+  background-position: center, center 74%;
+  background-repeat: no-repeat;
+}
+
+.portada-hero .header-inner {
+  min-block-size: 0;
+  padding-block: 1rem .5rem;
+}
+
+.portada-hero .brand {
+  min-block-size: 0;
+  flex: 0 1 auto;
+}
+
+.portada-hero .brand-logo {
+  display: block;
+  inline-size: clamp(8rem, 16vw, 12rem);
+  max-inline-size: 100%;
+  block-size: auto;
+  max-block-size: none;
+}
+
+.portada-hero .header-action {
+  flex: none;
+  min-block-size: 2.75rem;
+  padding-inline: .875rem;
+  border-color: rgba(255, 255, 255, .36);
+  background: rgba(12, 35, 55, .76);
+  color: #fff;
+  font-size: .875rem;
+}
+
+.portada-hero .header-action:hover {
+  border-color: #fff;
+  background: #163957;
+}
+
+.portada-titulo {
+  padding-block: .125rem 3rem;
+}
+
+.portada-titulo h1 {
+  max-inline-size: 47rem;
+  margin: 0;
+  font-size: clamp(2.1rem, 4.45vw, 3.375rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -.04em;
+  text-wrap: balance;
+}
+
+.portada-accesos .portal-card {
+  min-block-size: 5.75rem;
+  padding: 1rem 1.5rem;
+}
+
+.portada-accesos .portal-card strong {
+  color: #102a43;
+  font-size: clamp(1.1rem, 2.2vw, 1.625rem);
+  line-height: 1.18;
+}
+
+.portada-accesos .portal-card[aria-current="page"] {
+  border-color: #087d86;
+  background: #edf8f8;
+}
+
+.portada-hero a:focus-visible,
+.portada-accesos a:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 4px;
+}
+
+.portada-hero a:focus-visible {
+  color: #fff;
+}
+
+.portada-accesos + .content-section {
+  padding-block-start: clamp(1.75rem, 4vw, 3.5rem);
+}
+
+@media (max-width: 640px) {
+  .portada-hero {
+    min-block-size: 12.75rem;
+    background-position: center, 67% 66%;
+  }
+
+  .portada-hero .header-inner {
+    gap: .75rem;
+    padding-block: .75rem;
+  }
+
+  .portada-hero .header-action {
+    padding-inline: .625rem;
+    font-size: .8125rem;
+  }
+
+  .portada-titulo {
+    padding-block: .25rem 2rem;
+  }
+
+  .portada-titulo h1 {
+    max-inline-size: 15ch;
+  }
+
+  .portada-accesos .portal-card {
+    min-block-size: 3.5rem;
+    padding-inline: 1rem;
+  }
+}
