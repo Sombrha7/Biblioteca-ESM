@@ -8,11 +8,38 @@
   <meta name="robots" content="noindex,nofollow" />
   <title>Biblioteca de Procedimientos | ESM</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="portada.css?v=2" />
+  <link rel="stylesheet" href="portada.css?v=3" />
+  <style>
+    /* Mantiene la posición y el subtítulo incluso con la hoja de estilos anterior. */
+    .portada-hero--procedimientos {
+      display: flex;
+      flex-direction: column;
+      min-block-size: clamp(16.75rem, 25vw, 18.5rem);
+    }
+    .portada-hero--procedimientos .portada-titulo {
+      margin-block-start: auto;
+      padding-block: 1.75rem 1.5rem;
+    }
+    .portada-hero--procedimientos .portada-faena {
+      margin: .375rem 0 0;
+      color: #f0f7fc;
+      font-size: clamp(1rem, 1.8vw, 1.25rem);
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    @media (max-width: 640px) {
+      .portada-hero--procedimientos {
+        min-block-size: 15rem;
+      }
+      .portada-hero--procedimientos .portada-titulo {
+        padding-block: 1.25rem 1.125rem;
+      }
+    }
+  </style>
   <script src="app.js" defer></script>
 </head>
 <body>
-  <header class="portada-hero">
+  <header class="portada-hero portada-hero--procedimientos">
     <div class="container header-inner">
       <a class="brand" href="./" aria-label="Biblioteca ESM - Inicio">
         <img class="brand-logo" src="assets/logo-esm-blanco.png" alt="ESM — Empresa Soluciones Mineras" width="575" height="202" />
