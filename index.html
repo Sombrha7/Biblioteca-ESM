@@ -1,88 +1,74 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#102a43" />
+  <meta name="theme-color" content="#003989" />
   <meta name="description" content="Biblioteca de procedimientos vigentes ESM. Consulta y visualiza documentos PDF de forma simple." />
   <meta name="robots" content="noindex,nofollow" />
   <title>Biblioteca de Procedimientos | ESM</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="portada.css?v=3" />
-  <style>
-    /* Mantiene la posición y el subtítulo incluso con la hoja de estilos anterior. */
-    .portada-hero--procedimientos {
-      display: flex;
-      flex-direction: column;
-      min-block-size: clamp(16.75rem, 25vw, 18.5rem);
-    }
-    .portada-hero--procedimientos .portada-titulo {
-      margin-block-start: auto;
-      padding-block: 1.75rem 1.5rem;
-    }
-    .portada-hero--procedimientos .portada-faena {
-      margin: .375rem 0 0;
-      color: #f0f7fc;
-      font-size: clamp(1rem, 1.8vw, 1.25rem);
-      font-weight: 600;
-      line-height: 1.3;
-    }
-    @media (max-width: 640px) {
-      .portada-hero--procedimientos {
-        min-block-size: 15rem;
-      }
-      .portada-hero--procedimientos .portada-titulo {
-        padding-block: 1.25rem 1.125rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="portada.css?v=esm-4" />
   <script src="app.js" defer></script>
 </head>
-<body>
-  <header class="portada-hero portada-hero--procedimientos">
+<body class="esm-publica">
+  <a class="esm-salto" href="#contenido">Ir al contenido</a>
+  <header class="esm-barra">
     <div class="container header-inner">
       <a class="brand" href="./" aria-label="Biblioteca ESM - Inicio">
         <img class="brand-logo" src="assets/logo-esm-blanco.png" alt="ESM — Empresa Soluciones Mineras" width="575" height="202" />
       </a>
       <a class="header-action" href="admin.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a4 4 0 0 1 4 4v2h1a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-8a3 3 0 0 1 3-3h1V6a4 4 0 0 1 4-4Zm-2 6h4V6a2 2 0 0 0-4 0v2Z"/></svg><span>Administración</span></a>
     </div>
-    <div class="container portada-titulo">
-      <h1>Procedimientos a un clic.</h1>
-      <p class="portada-faena">Faena Centinela</p>
-    </div>
   </header>
-  <main>
-    <nav class="container two-portals portada-accesos" aria-label="Secciones de consulta">
-      <a class="portal-card active-portal" href="./" aria-current="page"><strong>Procedimientos</strong></a>
-      <a class="portal-card" href="accidentabilidad.html"><strong>Accidentabilidad y TOP 4</strong></a>
+  <main id="contenido" tabindex="-1">
+    <section class="esm-portada esm-portada--procedimientos" aria-labelledby="titulo-portada">
+      <div class="container esm-portada-interior">
+        <div class="esm-portada-texto">
+          <p class="esm-ceja">Biblioteca ESM</p>
+          <h1 id="titulo-portada">Procedimientos a un clic.</h1>
+          <p class="esm-faena">Faena Centinela</p>
+        </div>
+      </div>
+      <svg class="esm-curva" viewBox="0 0 400 96" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 96C168 96 294 54 400 0V96Z" fill="#fff"/></svg>
+    </section>
+    <nav class="container esm-navegacion" aria-label="Secciones de consulta">
+      <a class="esm-seccion-enlace" href="./" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6"/></svg><span>Procedimientos</span></a>
+      <a class="esm-seccion-enlace" href="accidentabilidad.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 5 6v6c0 4 2.8 7.3 7 9 4.2-1.7 7-5 7-9V6ZM9 12l2 2 4-4"/></svg><span>Accidentabilidad y TOP 4</span></a>
     </nav>
-    <section class="container content-section" aria-label="Listado de procedimientos">
+    <section class="esm-franja" aria-labelledby="procedimientos-titulo">
+      <div class="container esm-seccion">
       <div class="section-head">
-        <div><h2>Procedimientos disponibles</h2><p class="section-sub">Busca por nombre, categoría o versión.</p></div>
+        <div><h2 id="procedimientos-titulo">Procedimientos disponibles</h2><p class="section-sub">Busca por nombre, categoría o versión.</p></div>
         <div class="counter" id="counter" aria-live="polite">Cargando...</div>
       </div>
       <div class="search-wrap">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7"/><path d="m16 16 5 5"/></svg>
-        <input id="search" type="search" placeholder="Ej.: carga de combustible, derrame, EPP..." aria-label="Buscar procedimiento" autocomplete="off" />
+        <input id="search" type="search" placeholder="Ej.: derrame, carga, EPP…" aria-label="Buscar procedimiento" autocomplete="off" />
         <button id="clear-search" class="clear-search" type="button" aria-label="Borrar búsqueda" hidden>×</button>
       </div>
       <div id="filters" class="filter-row" role="group" aria-label="Filtrar por categoría"></div>
       <div id="notice" class="notice" aria-live="polite" hidden></div>
       <div id="cards" class="document-grid" aria-live="polite"></div>
       <div id="empty" class="empty-state" hidden>
-        <div class="empty-icon" aria-hidden="true">📄</div>
         <h3 id="empty-title">No hay procedimientos publicados</h3>
         <p id="empty-detail">Cuando se carguen documentos aparecerán aquí.</p>
       </div>
+      </div>
     </section>
   </main>
-  <footer class="site-footer"><div class="container footer-content"><span>ESM · Biblioteca de procedimientos</span><span>Consulta siempre la versión vigente. Ante dudas, contacta a tu supervisión.</span></div></footer>
+  <footer class="esm-pie">
+    <div class="container esm-pie-interior">
+      <img src="assets/logo-esm-blanco.png" width="575" height="202" alt="" loading="lazy" />
+      <p><strong>ESM · Faena Centinela</strong><span>Consulta siempre la versión vigente. Ante dudas, contacta a tu supervisión.</span></p>
+    </div>
+  </footer>
 
   <dialog id="pdf-dialog" class="pdf-dialog" aria-label="Visualizador de procedimiento">
     <div class="dialog-shell">
       <div class="dialog-head"><div class="dialog-name"><p>DOCUMENTO PDF</p><h2 id="viewer-title">Procedimiento</h2><span id="viewer-version"></span></div><button id="close-viewer" type="button" class="icon-button" aria-label="Cerrar documento">✕</button></div>
       <iframe id="pdf-frame" title="Visualizador PDF" loading="lazy"></iframe>
-      <div class="dialog-foot"><span>Si tu celular no lo muestra aquí, ábrelo directamente.</span><a id="viewer-link" class="button primary small" href="#" target="_blank" rel="noopener">Abrir PDF ↗</a></div>
+      <div class="dialog-foot"><span>Si tu celular no lo muestra aquí, ábrelo en otra pestaña.</span><a id="viewer-link" class="button primary small" href="#" target="_blank" rel="noopener">Abrir PDF</a></div>
     </div>
   </dialog>
 </body>

@@ -1,130 +1,539 @@
-/* Cabecera y navegación de las dos páginas públicas de la Biblioteca ESM. */
-.portada-hero {
-  display: flex;
-  flex-direction: column;
-  min-block-size: clamp(16.75rem, 25vw, 18.5rem);
+/* Tema corporativo para las vistas públicas de Biblioteca ESM. */
+.esm-publica {
+  --esm-azul: #003989;
+  --esm-documentos: #25549e;
+  --esm-azul-claro: #edf3fd;
+  --esm-blanco-tenue: #eef4ff;
+  --esm-foco: var(--esm-azul);
+  --text: #263445;
+  --muted: #47566a;
+  --line: #cbd7e6;
+  background: #fff;
+  color: var(--text);
+  font-family: Lato, "Segoe UI", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.esm-publica .container {
+  width: min(70rem, calc(100% - clamp(2rem, 6vw, 5rem)));
+}
+
+.esm-publica :focus-visible {
+  outline: 3px solid var(--esm-foco);
+  outline-offset: 4px;
+}
+
+.esm-salto {
+  position: fixed;
+  z-index: 10;
+  inset-block-start: .65rem;
+  inset-inline-start: .65rem;
+  padding: .55rem .9rem;
+  border-radius: .35rem;
+  background: #fff;
+  color: var(--esm-azul);
+  font-weight: 700;
+  transform: translateY(-180%);
+}
+
+.esm-salto:focus { transform: translateY(0); }
+
+.esm-barra {
+  --esm-foco: #fff;
+  background: var(--esm-azul);
+  border-bottom: 3px solid #fff;
+}
+
+.esm-barra .header-inner {
+  min-height: 5rem;
+  gap: .8rem;
+  padding-block: .55rem;
+}
+
+.esm-barra .brand { min-height: 0; flex: 0 1 auto; }
+.esm-barra .brand-logo {
+  display: block;
+  inline-size: clamp(7.1rem, 14vw, 9.25rem);
+  max-inline-size: 100%;
+  max-block-size: none;
+  block-size: auto;
+}
+
+.esm-barra .header-action {
+  flex: none;
+  justify-content: center;
+  min-height: 2.75rem;
+  gap: .42rem;
+  padding-inline: .9rem;
+  border: 1px solid #fff;
+  border-radius: 100vmax;
+  background: #fff;
+  color: var(--esm-azul);
+  font-size: .875rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.esm-barra .header-action:hover {
+  border-color: var(--esm-blanco-tenue);
+  background: var(--esm-blanco-tenue);
+  color: var(--esm-azul);
+}
+
+.esm-portada {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   color: #fff;
-  background-color: #102a43;
+  background: var(--esm-azul);
+}
+
+.esm-portada--procedimientos {
   background-image:
-    linear-gradient(100deg, rgba(7, 29, 47, .97) 0%, rgba(8, 31, 48, .86) 43%, rgba(9, 34, 53, .38) 100%),
+    linear-gradient(90deg, #071c3bf2 1%, #092b54c7 42%, #12375a54 100%),
+    linear-gradient(0deg, #071d3899, transparent 72%),
     url("assets/enex-mineria.jpg");
+  background-position: center, center, center 72%;
   background-size: cover;
-  background-position: center, center 74%;
   background-repeat: no-repeat;
 }
 
-.portada-hero .header-inner {
-  min-block-size: 0;
-  padding-block: 1rem .5rem;
+.esm-portada--accidentabilidad {
+  background-image: linear-gradient(108deg, #082857, #103f7e 64%, #25549e);
 }
 
-.portada-hero .brand {
-  min-block-size: 0;
-  flex: 0 1 auto;
+.esm-portada--accidentabilidad::before {
+  position: absolute;
+  inset-block-start: -72%;
+  inset-inline-end: -6%;
+  width: clamp(18rem, 52vw, 43rem);
+  aspect-ratio: 1;
+  box-sizing: border-box;
+  border: clamp(2.1rem, 5.1vw, 4.5rem) solid #ffffff0d;
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
 }
 
-.portada-hero .brand-logo {
+.esm-portada-interior {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(19rem, 27vw, 23.5rem);
+  padding-block: 2.25rem clamp(2rem, 4vw, 3.3rem);
+}
+
+.esm-portada-texto { width: min(100%, 58rem); }
+.esm-ceja {
+  margin: 0 0 .5rem;
+  color: var(--esm-blanco-tenue);
+  font-size: .875rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.esm-portada h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.85rem, 4.65vw, 4rem);
+  font-weight: 700;
+  line-height: 1.09;
+  letter-spacing: .005em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.esm-faena {
+  margin: .47rem 0 0;
+  color: var(--esm-blanco-tenue);
+  font-size: clamp(1.06rem, 1.8vw, 1.36rem);
+  font-weight: 700;
+}
+
+.esm-curva {
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-end: -1px;
+  width: min(29vw, 27rem);
+  height: clamp(2.1rem, 6vw, 5.75rem);
+  pointer-events: none;
+}
+
+.esm-navegacion {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .65rem;
+  padding-block: clamp(.95rem, 2.5vw, 1.45rem);
+}
+
+.esm-seccion-enlace {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .65rem;
+  min-height: 3.2rem;
+  padding: .64rem .9rem;
+  border: 1px solid var(--line);
+  border-radius: .55rem;
+  color: var(--esm-azul);
+  background: #fff;
+  font-size: clamp(.95rem, 1.5vw, 1.08rem);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.esm-seccion-enlace svg {
+  flex: 0 0 1.15rem;
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.esm-seccion-enlace:hover {
+  border-color: var(--esm-azul);
+  background: var(--esm-azul-claro);
+}
+
+.esm-seccion-enlace[aria-current="page"] {
+  border-color: var(--esm-azul);
+  background: var(--esm-azul);
+  color: #fff;
+}
+
+.esm-franja {
+  --esm-foco: #fff;
+  background: var(--esm-documentos);
+  color: #fff;
+}
+
+.esm-seccion, .esm-resumen {
+  padding-block: clamp(1.9rem, 4.6vw, 3.7rem);
+}
+
+.esm-resumen {
+  border-top: 1px solid #e0e8f3;
+  padding-block-start: clamp(1.35rem, 3.1vw, 2.35rem);
+}
+
+.esm-publica .section-head { margin-bottom: 1.1rem; align-items: center; }
+.esm-publica .section-head h2 {
+  margin: 0 0 .33rem;
+  color: var(--esm-azul);
+  font-size: clamp(1.48rem, 3.05vw, 2.48rem);
+  font-weight: 700;
+  line-height: 1.13;
+  letter-spacing: .01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.esm-publica .section-sub { font-size: 1rem; }
+.esm-publica .esm-franja .section-head h2 { color: #fff; }
+.esm-publica .esm-franja .section-sub { color: var(--esm-blanco-tenue); }
+
+.esm-franja .counter {
+  padding: .4rem .75rem;
+  border-color: #c9dbf6;
+  background: #fff;
+  color: var(--esm-azul);
+  font-size: .875rem;
+  line-height: 1.25;
+}
+
+.esm-franja .search-wrap {
+  gap: .62rem;
+  width: min(100%, 39rem);
+  height: 3.2rem;
+  padding-inline: .95rem .42rem;
+  border: 1px solid #fff;
+  border-radius: 100vmax;
+  box-shadow: none;
+}
+
+.esm-franja .search-wrap:focus-within {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+  box-shadow: inset 0 0 0 2px var(--esm-azul);
+}
+
+.esm-franja .search-wrap svg { stroke: var(--esm-documentos); }
+.esm-franja .search-wrap input {
+  flex: 1;
+  width: 0;
+  min-width: 0;
+  font-size: 1rem;
+  outline: none;
+}
+
+.esm-franja .search-wrap input::placeholder { color: #566781; }
+.esm-franja .clear-search {
+  flex: 0 0 2.75rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--esm-azul-claro);
+  color: var(--esm-azul);
+}
+
+.esm-franja .clear-search:focus-visible {
+  outline-color: var(--esm-azul);
+  outline-offset: -3px;
+}
+
+.esm-franja .filter-row { gap: .45rem; margin-block: .95rem 1.25rem; }
+.esm-franja .filter-chip {
+  min-height: 2.75rem;
+  padding: .45rem .85rem;
+  border: 1px solid #e2ecfc;
+  background: transparent;
+  color: #fff;
+  font-size: .875rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.esm-franja .filter-chip:hover,
+.esm-franja .filter-chip[aria-pressed="true"] {
+  border-color: #fff;
+  background: #fff;
+  color: var(--esm-azul);
+}
+
+.esm-franja .document-grid {
   display: block;
-  inline-size: clamp(8rem, 16vw, 12rem);
-  max-inline-size: 100%;
-  block-size: auto;
-  max-block-size: none;
+  border-top: 1px solid #c0d0eb;
 }
 
-.portada-hero .header-action {
-  flex: none;
-  min-block-size: 2.75rem;
-  padding-inline: .875rem;
-  border-color: rgba(255, 255, 255, .36);
-  background: rgba(12, 35, 55, .76);
+.esm-franja .document-grid:empty { border: 0; }
+.esm-franja .document-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "etiquetas acciones" "texto acciones";
+  column-gap: clamp(1.2rem, 3.5vw, 2.4rem);
+  row-gap: .48rem;
+  align-items: start;
+  min-height: 0;
+  padding: 1.07rem 0 1.22rem;
+  border: 0;
+  border-bottom: 1px solid #c0d0eb;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  color: #fff;
+  transition: none;
+}
+
+.esm-franja .document-card:hover { box-shadow: none; transform: none; }
+.esm-franja .card-top { grid-area: etiquetas; justify-content: start; gap: .48rem; flex-wrap: wrap; }
+.esm-franja .pdf-mark, .esm-franja .tag.current {
+  width: auto;
+  height: auto;
+  padding: .18rem .53rem;
+  border: 1px solid #dbe7fa;
+  border-radius: .3rem;
+  background: transparent;
+  color: #fff;
+  font-weight: 700;
+  font-size: .8125rem;
+  line-height: 1.25;
+}
+
+.esm-franja .pdf-mark::after { display: none; }
+.esm-franja .tag.current { background: var(--esm-azul-claro); color: var(--esm-azul); }
+.esm-franja .card-middle { grid-area: texto; min-width: 0; }
+.esm-franja .doc-category { color: var(--esm-blanco-tenue); font-size: .875rem; font-weight: 700; }
+.esm-franja .document-card h3 {
+  margin-top: .17rem;
+  color: #fff;
+  font-size: clamp(1.07rem, 1.9vw, 1.28rem);
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: 0;
+}
+
+.esm-franja .doc-description {
+  margin-top: .32rem;
+  color: var(--esm-blanco-tenue);
+  font-size: .95rem;
+  overflow-wrap: anywhere;
+}
+
+.esm-franja .card-bottom {
+  grid-area: acciones;
+  align-self: center;
+  gap: clamp(.8rem, 2.6vw, 1.8rem);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.esm-franja .doc-meta { color: var(--esm-blanco-tenue); font-size: .8125rem; }
+.esm-franja .doc-meta strong { color: #fff; font-size: .875rem; }
+.esm-franja .card-bottom .button.primary {
+  min-height: 2.75rem;
+  padding: .43rem .8rem;
+  border: 1px solid #fff;
+  border-radius: 100vmax;
+  background: transparent;
   color: #fff;
   font-size: .875rem;
 }
 
-.portada-hero .header-action:hover {
-  border-color: #fff;
-  background: #163957;
+.esm-franja .card-bottom .button.primary:hover { background: #fff; color: var(--esm-azul); }
+.esm-franja .empty-state {
+  padding: 1.55rem 1.1rem;
+  background: #fff;
+  color: var(--esm-azul);
+  border-color: #dce8fc;
+  border-radius: .6rem;
+  text-align: left;
 }
 
-.portada-titulo {
-  margin-block-start: auto;
-  padding-block: 1.75rem 1.5rem;
+.esm-franja .empty-state p, .esm-franja .notice { font-size: .9375rem; }
+
+.esm-resumen .section-head-year { margin-bottom: 1rem; }
+.esm-resumen .year-picker { color: var(--esm-azul); font-size: .9375rem; }
+.esm-resumen .year-picker select {
+  appearance: none;
+  min-height: 2.75rem;
+  padding: .45rem 2.25rem .45rem .8rem;
+  border-color: var(--line);
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23003989' stroke-width='1.7' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E") right .65rem center / 1rem no-repeat;
+  color: var(--esm-azul);
+  font-size: .9375rem;
 }
 
-.portada-titulo h1 {
-  max-inline-size: 47rem;
-  margin: 0;
-  font-size: clamp(2.1rem, 4.45vw, 3.375rem);
-  font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -.04em;
-  text-wrap: balance;
+.esm-resumen .year-stats { gap: .7rem; margin: 0 0 .95rem; }
+.esm-resumen .year-stat {
+  gap: .68rem;
+  padding: .93rem .88rem;
+  border: 1px solid var(--line);
+  border-radius: .55rem;
+  box-shadow: none;
+  background: #fff;
 }
 
-.portada-faena {
-  margin: .375rem 0 0;
-  color: #f0f7fc;
-  font-size: clamp(1rem, 1.8vw, 1.25rem);
-  font-weight: 600;
-  line-height: 1.3;
+.esm-resumen .year-stat span {
+  color: #3e526f;
+  font-size: .813rem;
+  overflow-wrap: anywhere;
 }
 
-.portada-accesos .portal-card {
-  min-block-size: 5.75rem;
-  padding: 1rem 1.5rem;
+.esm-resumen .year-stat strong {
+  color: var(--esm-azul);
+  font-size: clamp(1.85rem, 3.3vw, 2.45rem);
+  font-variant-numeric: tabular-nums;
 }
 
-.portada-accesos .portal-card strong {
-  color: #102a43;
-  font-size: clamp(1.1rem, 2.2vw, 1.625rem);
-  line-height: 1.18;
+.esm-resumen .year-stat small { color: var(--muted); font-size: .813rem; }
+.esm-resumen .feature-stat { border-color: #9db9e6; background: var(--esm-azul-claro); }
+.esm-resumen .definition-note { margin: 0; max-width: 64rem; color: var(--muted); font-size: .875rem; }
+
+.esm-franja .incident-grid { gap: .8rem; }
+.esm-franja .incident-card {
+  --esm-foco: var(--esm-azul);
+  gap: .85rem;
+  padding: clamp(1rem, 2.4vw, 1.4rem);
+  border: 1px solid #d9e6fa;
+  border-radius: .65rem;
+  box-shadow: none;
+  color: var(--text);
 }
 
-.portada-accesos .portal-card[aria-current="page"] {
-  border-color: #087d86;
-  background: #edf8f8;
+.esm-franja .incident-type {
+  padding: .27rem .54rem;
+  border-radius: .34rem;
+  background: var(--esm-azul-claro);
+  color: var(--esm-azul);
+  font-size: .875rem;
 }
 
-.portada-hero a:focus-visible,
-.portada-accesos a:focus-visible {
-  outline: 3px solid currentColor;
-  outline-offset: 4px;
+.esm-franja .incident-date { color: var(--muted); font-size: .875rem; }
+.esm-franja .incident-field { gap: .12rem; }
+.esm-franja .incident-field-label,
+.esm-franja .lesson-field .incident-field-label {
+  color: var(--esm-azul);
+  font-size: .875rem;
+  font-weight: 700;
+  letter-spacing: .04em;
 }
 
-.portada-hero a:focus-visible {
+.esm-franja .incident-field p { font-size: 1rem; line-height: 1.5; }
+.esm-franja .lesson-field { padding-top: .68rem; border-color: var(--line); }
+.esm-franja .incident-pdf-link {
+  min-height: 2.75rem;
+  border: 1px solid var(--esm-azul);
+  border-radius: 100vmax;
+  background: #fff;
+  color: var(--esm-azul);
+  font-size: .875rem;
+}
+
+.esm-franja .incident-pdf-link:hover { background: var(--esm-azul-claro); }
+
+.esm-publica .pdf-dialog::backdrop { background: #061b39bf; }
+.esm-publica .dialog-name p { color: var(--esm-azul); font-size: .875rem; }
+.esm-publica .dialog-name h2 { color: var(--text); }
+.esm-publica .dialog-name span, .esm-publica .dialog-foot { color: var(--muted); font-size: .875rem; }
+.esm-publica .dialog-foot { flex-wrap: wrap; }
+.esm-publica .pdf-dialog .icon-button { width: 2.75rem; height: 2.75rem; color: var(--esm-azul); }
+.esm-publica .pdf-dialog .button.primary {
+  min-height: 2.75rem;
+  border-radius: 100vmax;
+  background: var(--esm-azul);
+  font-size: .875rem;
+}
+
+.esm-publica .pdf-dialog .button.primary:hover { background: var(--esm-documentos); }
+
+.esm-pie {
+  border-top: 2px solid #fff;
+  background: var(--esm-azul);
   color: #fff;
 }
 
-.portada-accesos + .content-section {
-  padding-block-start: clamp(1.75rem, 4vw, 3.5rem);
+.esm-pie-interior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .8rem 1.55rem;
+  padding-block: 1.15rem;
 }
 
-@media (max-width: 640px) {
-  .portada-hero {
-    min-block-size: 15rem;
-    background-position: center, 67% 68%;
-  }
+.esm-pie-interior img { width: 7.45rem; height: auto; }
+.esm-pie-interior p { margin: 0; text-align: right; font-size: .9375rem; }
+.esm-pie-interior span { display: block; color: var(--esm-blanco-tenue); }
 
-  .portada-hero .header-inner {
-    gap: .75rem;
-    padding-block: .75rem;
+@media (max-width: 43rem) {
+  .esm-barra .header-inner { min-height: 4.3rem; }
+  .esm-portada-interior { min-height: clamp(12.5rem, 47vw, 17rem); }
+  .esm-portada--procedimientos { background-position: center, center, 63% 72%; }
+  .esm-portada h1 { max-width: 25ch; }
+  .esm-franja .document-card {
+    grid-template-columns: 1fr;
+    grid-template-areas: "etiquetas" "texto" "acciones";
+    row-gap: .5rem;
   }
+  .esm-franja .card-bottom { margin-top: .14rem; }
+  .esm-franja .incident-grid { grid-template-columns: 1fr; }
+}
 
-  .portada-hero .header-action {
-    padding-inline: .625rem;
-    font-size: .8125rem;
-  }
-
-  .portada-titulo {
-    padding-block: 1.25rem 1.125rem;
-  }
-
-  .portada-titulo h1 {
-    max-inline-size: 15ch;
-  }
-
-  .portada-accesos .portal-card {
-    min-block-size: 3.5rem;
-    padding-inline: 1rem;
-  }
+@media (max-width: 31rem) {
+  .esm-barra .header-action { padding-inline: .65rem; }
+  .esm-portada h1 { font-size: clamp(1.75rem, 7.8vw, 2.35rem); }
+  .esm-navegacion { grid-template-columns: minmax(0, 1fr); }
+  .esm-seccion-enlace { justify-content: flex-start; text-align: start; }
+  .esm-publica .section-head:not(.section-head-year) { flex-wrap: wrap; align-items: flex-start; gap: .6rem; }
+  .esm-resumen .section-head-year { flex-wrap: wrap; align-items: flex-start; }
+  .esm-pie-interior { flex-direction: column; align-items: flex-start; }
+  .esm-pie-interior p { text-align: left; }
 }
